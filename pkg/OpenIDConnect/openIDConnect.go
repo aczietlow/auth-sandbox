@@ -5,6 +5,7 @@ type OIDC struct {
 	ClientURL   string
 	AuthURL     string
 	RedirectURL string
+	Secret      string
 	// State       string
 	// Verifier    string
 	// Token       Token
@@ -21,6 +22,7 @@ func New(filepath string) (OIDC, error) {
 		ClientURL:   c.URL,
 		AuthURL:     c.AuthURL,
 		RedirectURL: c.RedirectURL,
+		Secret:      c.Secret,
 	}
 
 	return o, nil

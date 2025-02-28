@@ -11,6 +11,7 @@ type Config struct {
 	RedirectURL string `yaml:"redirectURL"`
 	URL         string `yaml:"appURL"`
 	AuthURL     string `yaml:"authURL"`
+	Secret      string `yaml:"secret"`
 }
 
 func loadConfig(filepath string) (*Config, error) {

@@ -41,4 +41,7 @@ func TestLoadConfig(t *testing.T) {
 	if conf.AuthURL != "http://localhost/auth" {
 		t.Errorf("expected authURL to be http://localhost/auth, got %s", conf.AuthURL)
 	}
+	if conf.Secret != "pass" {
+		t.Errorf("expected authURL to be pass, got %s", conf.Secret)
+	}
 }
