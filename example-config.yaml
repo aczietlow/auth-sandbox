@@ -1,0 +1,4 @@
+redirectURL: http://localhost:9001/redirect
+appURL: http://localhost:9001/
+id: openid
+authURL: http://localhost/auth

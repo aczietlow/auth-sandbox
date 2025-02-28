@@ -1,12 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
 	"path/filepath"
 
+	openidconnect "github.com/aczietlow/auth-sandbox/pkg/OpenIDConnect"
 	"github.com/labstack/echo/v4"
 )
 
@@ -54,7 +56,19 @@ func main() {
 	e.Static("/js", "web/js")
 	e.Static("/assets", "web/assets")
 	e.Renderer = t
+
+	// register routes
 	e.GET("/", index)
+
+	// Get fancy client
+	oidc, err := openidconnect.New("config.yaml")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("New OIDC Client created: %s", oidc.ClientID)
+
+	// start server
 	e.Logger.Fatal(e.Start(":1322"))
 }
 
