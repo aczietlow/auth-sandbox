@@ -1,0 +1,98 @@
+:root {
+    --primary-cta-color: #e00;
+    --primary-cta-color-highlighted: #9e0018;
+    --secondary-color: #151515;
+    --background-color: #f5f5f5;
+    --sm-breakpoint: 480px;
+    --md-breakpoint: 768px;
+    --lg-breakpoint: 1024px;
+    --xl-breakpoint: 1280px;
+}
+
+body {
+    backgroud-color: pink;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /*max-width: 1920px;*/
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+    min-height: 100vh;
+    font-kerning: normal;
+    font-family: 'Red Hat Text', sans-serif;
+    box-sizing: border-box;
+}
+
+.content {
+    padding-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+}
+
+.htmx-request.htmx-indicator{
+    opacity:1
+}
+
+.header {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1.5rem;
+    background: var(--secondary-color);
+    color: #FFF;
+    z-index: 99;
+    position: fixed;
+}
+
+.header__navigation {
+    display: flex;
+    max-width: 1440px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    & a {
+        color:white;
+        text-decoration: none;
+    }
+}
+
+.nav__item,
+.header .u-logo,
+.header .u-url,
+.header .h-app {
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header .u-logo {
+    width: 25px;
+}
+
+.header__navigation .brand {
+    padding-left: 0;
+}
+
+.nav__body {
+    display: flex;
+    flex: 1;
+}
+
+.nav__parent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+    border-radius: 0.5rem;
+}
+
+.socials-nav__parent {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+    & a {
+        padding: 0.5rem 1rem;
+    }
+}
+

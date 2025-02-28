@@ -1,0 +1,12 @@
+.idea/
+.DS_Store
+
+/tmp/
+/dist/
+/node_modules/
+/website/views/**/*.go
+/http
+
+config.yaml
+data.txt
+server
