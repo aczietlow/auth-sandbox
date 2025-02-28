@@ -1,38 +1,34 @@
 package clientServer
 
 import (
-	"net/http"
-
+	"github.com/aczietlow/auth-sandbox/pkg/ClientServer/handler"
+	openidconnect "github.com/aczietlow/auth-sandbox/pkg/OpenIDConnect"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
-func Start() {
+func Start(c openidconnect.OIDC) {
 	// compile templates
 	t := compileTemplates()
 	e := echo.New()
-	e.Static("/css", "web/css")
-	e.Static("/js", "web/js")
-	e.Static("/assets", "web/assets")
-	e.Renderer = t
-
-	// register routes
-	e.GET("/", index)
-	e.GET("/oauth2/callback", oauthCallback)
 
 	// middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	e.Static("/css", "web/css")
+	e.Static("/js", "web/js")
+	e.Static("/assets", "web/assets")
+	e.Renderer = t
+
+	h := &handler.Handler{
+		OIDC: &c,
+	}
+
+	// register routes
+	e.GET("/", h.Index)
+	e.GET("/oauth2/callback", h.OAuthCallback)
+
 	// start server
 	e.Logger.Fatal(e.Start(":1322"))
-}
-
-func index(c echo.Context) error {
-	// redirect := ""
-	return c.Render(http.StatusOK, "index", nil)
-}
-
-func oauthCallback(c echo.Context) error {
-	return c.String(http.StatusOK, "ain't no hollar back")
 }
