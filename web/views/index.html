@@ -4,20 +4,24 @@
     {{ template "head.html" . }}
 </head>
 <body>
-{{ template "header.html" . }}
 
-<script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-        document.body.addEventListener('htmx:beforeSwap', function(event) {
-            if (event.detail.xhr.status === 422) {
-                event.detail.shouldSwap = true;
-                event.detail.isError = false;
-            }
-        });
-    })
-</script>
-        <div></div>
+    {{ template "header.html" . }}
+    <div class="content">
+        <div class="wrapper">
+            <h1>Hello world</h1>
+        </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            document.body.addEventListener('htmx:beforeSwap', function(event) {
+                if (event.detail.xhr.status === 422) {
+                    event.detail.shouldSwap = true;
+                    event.detail.isError = false;
+                }
+            });
+        })
+    </script>
+    </div>
 </body>
 </html>
 {{ end }}
