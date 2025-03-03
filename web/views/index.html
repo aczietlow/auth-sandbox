@@ -8,20 +8,13 @@
     {{ template "header.html" . }}
     <div class="content">
         <div class="wrapper">
-            <h1>Hello world</h1>
-                <a href="{{ . }}">Login</a>
+            <h1>OIDC Sandbox</h1>
+                <div class="anchor-button">
+                    <a class="anchor-button" href="/authflow">Auth code flow</a>
+                </div>
         </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", (event) => {
-            document.body.addEventListener('htmx:beforeSwap', function(event) {
-                if (event.detail.xhr.status === 422) {
-                    event.detail.shouldSwap = true;
-                    event.detail.isError = false;
-                }
-            });
-        })
-    </script>
+    {{ template "javascript.html" . }}
     </div>
 </body>
 </html>

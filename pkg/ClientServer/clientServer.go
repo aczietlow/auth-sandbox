@@ -14,7 +14,7 @@ func Start(c openidconnect.OIDC) {
 
 	// middleware
 	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	// e.Use(middleware.Recover())
 
 	e.Static("/css", "web/css")
 	e.Static("/js", "web/js")
@@ -28,6 +28,7 @@ func Start(c openidconnect.OIDC) {
 	// register routes
 	e.GET("/", h.Index)
 	e.GET("/oauth2/callback", h.OAuthCallback)
+	e.GET("/authflow", h.AuthFlow)
 
 	// start server
 	e.Logger.Fatal(e.Start(":1322"))
