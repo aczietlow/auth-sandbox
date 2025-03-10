@@ -1,24 +1,29 @@
 {{ block "oidc-callback" . }}
 <html>
-<head>
+  <head>
     {{ template "head.html" . }}
-</head>
-<body>
+  </head>
+  <body>
     {{ template "header.html" . }}
     <div class="content">
-        <div class="wrapper">
-            <h1>OIDC Callback</h1>
-            <div class="anchor-button">
-                <a class="anchor-button" href="{{ .ExchangeCodeUrl }}">Exchange Auth Code for token</a>
-            </div>
+      <div class="wrapper">
+        <h1>OIDC Callback</h1>
+        <div class="anchor-button">
+          <a class="anchor-button" href="{{ .ExchangeCodeUrl }}"
+            >Exchange Auth Code for token</a
+          >
         </div>
-                <div><pre> 
+      </div>
+      <div>
+        <pre>
+ 
                     {{ .InfoDump }}
-                </pre></div>
+                </pre
+        >
+      </div>
     </div>
 
     {{ template "javascript.html" . }}
-</body>
+  </body>
 </html>
 {{ end }}
-
